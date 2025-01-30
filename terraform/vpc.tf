@@ -2,13 +2,13 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
 
-  name = "vprofile-eks"
+  name = "vgitops-eks"
 
-  cidr = "172.20.0.0/16"
+  cidr = "10.20.0.0/16"
   azs  = slice(data.aws_availability_zones.available.names, 0, 3)
 
-  private_subnets = ["172.20.1.0/24", "172.20.2.0/24", "172.20.3.0/24"]
-  public_subnets  = ["172.20.4.0/24", "172.20.5.0/24", "172.20.6.0/24"]
+  private_subnets = ["10.20.10.0/24", "10.20.12.0/24", "10.20.13.0/24"]
+  public_subnets  = ["10.20.14.0/24", "10.20.15.0/24", "10.20.16.0/24"]
 
   enable_nat_gateway   = true
   single_nat_gateway   = true
